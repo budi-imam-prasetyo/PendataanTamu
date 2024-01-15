@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('tgl_lahir');
             $table->enum('status', ['PNS', 'Guru Honor Sekolah']);
             $table->string('PTK');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
 
         });
