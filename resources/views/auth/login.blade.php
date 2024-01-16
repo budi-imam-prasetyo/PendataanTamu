@@ -1,28 +1,39 @@
-@extends('layouts.app')
+@extends('layouts.mainAdmin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
+           @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+    <div class="relative flex flex-col justify-center h-screen overflow-hidden">
+        <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
+            <h1 class="text-3xl font-semibold text-center text-primary">{{ __('Pendataan tamu') }}</h1>
+            <form method="POST" action="{{ route('login') }}" class="space-y-4">
+                @csrf
+                <div>
+                    <label for="email" class="label"><span
+                            class="text-base label-text">{{ __('Email Address') }}</span></label>
+                    <input id="email" type="email" class="w-full input input-bordered input-primary" name="email"
+                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                </div>
+                <div>
+                    <label for="password" class="label">
+                        <span class="text-base label-text">{{ __('Password') }}</span>
+                    </label>
+                        <input id="password" type="password" class="w-full input input-bordered input-primary"
+                            name="password" required autocomplete="current-password">
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6 offset-md-4">
+                        <div class="form-check">
+                            <input class="checkbox checkbox-primary" type="checkbox" name="remember" id="remember"
+                                {{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="remember">
+                                {{ __('Remember Me') }}
+                            </label>
                         </div>
 
                         <div class="row mb-3">
