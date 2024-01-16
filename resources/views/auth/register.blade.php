@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @extends('layouts.mainAdmin')
+=======
+@extends('layouts.app')
+>>>>>>> andini
 
 @section('content')
 <div class="container">
