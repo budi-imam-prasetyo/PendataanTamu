@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('detail_user', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_mapel');
             $table->integer('NIP');
             $table->string('nama');
             $table->string('telp')->unique();
