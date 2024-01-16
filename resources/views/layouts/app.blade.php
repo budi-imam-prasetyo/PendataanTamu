@@ -44,7 +44,6 @@
                                     </div>
                                     <div class="text-slate-400">
                                         {{ Auth::user()->role }}
-
                                     </div>
                                 </div>
                             </div>
