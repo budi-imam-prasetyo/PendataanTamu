@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('alamat_tamu');
             $table->string('no_telp_tamu');
             $table->string('email_tamu')->unique(); 
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });        
