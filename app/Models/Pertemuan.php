@@ -17,4 +17,9 @@ class Pertemuan extends Model
     {
         return $this->belongsTo(Tamu::class, 'id_mapel', 'id');
     }
+  
+    public function laporan()
+    {
+        return $this->belongsToMany(Laporan::class, 'id_detail', 'id');
+    }
 }
