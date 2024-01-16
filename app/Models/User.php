@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(detailUser::class, 'id_user', 'id');
     }
+
+    public function tamu()
+    {
+        return $this->hasOne(Tamu::class, 'id_user', 'id');
+    }
 }
