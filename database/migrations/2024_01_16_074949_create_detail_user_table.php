@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('jk', ['Laki-laki', 'Perempuan']);
             $table->date('tgl_lahir');
             $table->enum('status', ['PNS', 'Guru Honor Sekolah']);
-            $table->string('PTK');
+            $table->unsignedBigInteger('id_mapel');
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('id_mapel')->references('id')->on('mapel')->onDelete('cascade');
             $table->timestamps();

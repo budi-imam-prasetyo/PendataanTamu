@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_laporan', function (Blueprint $table) {
+        Schema::create('laporan', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id_pertemuan')->references('id')->on('tbl_pertemuans')->onDelete('cascade');
+            $table->unsignedBigInteger('id_pertemuan');
+            $table->foreign('id_pertemuan')->references('id')->on('pertemuan')->onDelete('cascade');
             $table->text('hasil_pertemuan');
             $table->timestamps();
         });
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tbl_laporan');
+        Schema::dropIfExists('laporan');
     }
 };

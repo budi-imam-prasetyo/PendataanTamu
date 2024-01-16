@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tbl_tamu', function (Blueprint $table) {
+        Schema::create('tamu', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_user');
             $table->string('nama_tamu');
             $table->text('alamat_tamu');
             $table->string('no_telp_tamu');
