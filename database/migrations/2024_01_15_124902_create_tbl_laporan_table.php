@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tbl_laporan', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id_pertemuan')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('id_pertemuan')->references('id')->on('tbl_pertemuan')->onDelete('cascade');
             $table->text('hasil_pertemuan');
             $table->timestamps();
         });
