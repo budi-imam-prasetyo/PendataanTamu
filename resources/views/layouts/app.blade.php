@@ -1,5 +1,7 @@
 <!doctype html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="cupcake">
+
 
 <head>
     <meta charset="utf-8">
@@ -15,10 +17,11 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite('resources/css/app.css')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
+
     <!-- component -->
     <div class=" h-full">
         <dh-component>
