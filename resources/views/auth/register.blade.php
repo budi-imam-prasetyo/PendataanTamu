@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.mainAdmin')
-=======
-@extends('layouts.app')
->>>>>>> andini
 
 @section('content')
     <div class="relative flex flex-col justify-center h-screen overflow-hidden">
@@ -49,3 +45,4 @@
         </div>
     </div>
 @endsection
+
