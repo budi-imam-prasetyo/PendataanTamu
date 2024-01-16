@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.mainAdmin')
 
 @section('content')
     <div class="relative flex flex-col justify-center h-screen overflow-hidden">
         <div class="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
-            <h1 class="text-3xl font-semibold text-center text-purple-700">{{ __('Pendataan tamu') }}</h1>
+            <h1 class="text-3xl font-semibold text-center text-primary">{{ __('Pendataan tamu') }}</h1>
             <form method="POST" action="{{ route('login') }}" class="space-y-4">
                 @csrf
                 <div>
@@ -25,7 +25,6 @@
                         <div class="form-check">
                             <input class="checkbox checkbox-primary" type="checkbox" name="remember" id="remember"
                                 {{ old('remember') ? 'checked' : '' }}>
-
                             <label class="form-check-label" for="remember">
                                 {{ __('Remember Me') }}
                             </label>

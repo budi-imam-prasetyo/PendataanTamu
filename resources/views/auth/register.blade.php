@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.mainAdmin')
 
 @section('content')
     <div class="relative flex flex-col justify-center h-screen overflow-hidden">
