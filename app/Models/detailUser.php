@@ -18,4 +18,9 @@ class detailUser extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
+    public function mapel()
+    {
+        return $this->belongsTo(Mapel::class, 'id_mapel', 'id');
+    }
 }
