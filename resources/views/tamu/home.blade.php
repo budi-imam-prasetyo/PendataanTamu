@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <div class="">
+=======
+<div class="container">
+>>>>>>> andini
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -15,6 +19,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+<<<<<<< HEAD
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                             Logout
@@ -22,6 +27,8 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                             @csrf
                                         </form>
+=======
+>>>>>>> andini
                 </div>
             </div>
         </div>
