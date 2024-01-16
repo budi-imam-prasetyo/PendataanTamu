@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pertemuan extends Model
+class Laporan extends Model
 {
     use HasFactory;
-    public function detailUser()
+    public function pertemuan()
     {
-        return $this->belongsTo(detailUser::class, 'id_pertemuan', 'id');
+        return $this->belongsToMany(Pertemuan::class, 'id_detail', 'id');
     }
 }
