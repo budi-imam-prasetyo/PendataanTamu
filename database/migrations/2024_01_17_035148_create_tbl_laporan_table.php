@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('tbl_laporan', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id_pertemuan')->references('id')->on('tbl_pertemuans')->onDelete('cascade');
+            $table->unsignedBigInteger('id_pertemuan');
+            $table->foreign('id_pertemuan')->references('id')->on('tbl_pertemuan')->onDelete('cascade');
             $table->text('hasil_pertemuan');
             $table->timestamps();
         });

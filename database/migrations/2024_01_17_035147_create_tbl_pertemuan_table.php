@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('tbl_pertemuan', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id_tamu')->reference('id')->on('tbl_tamu')-onDelete('cascade');
-            $table->foreign('id_detail')->reference('id')->on('detail_user')-onDelete('cascade');
+            $table->unsignedBigInteger('id_tamu');
+            $table->unsignedBigInteger('id_detail');
             $table->datetime('tanggal_waktu');
             $table->string('tujuan');
-            $table->enum('status', ['diizinkan', 'belum diizinkan'])->default('belum dizinkan');
+            $table->enum('status', ['diizinkan', 'belum diizinkan'])->default('belum diizinkan');
+            $table->foreign('id_tamu')->references('id')->on('tbl_tamu')->onDelete('cascade');
+            $table->foreign('id_detail')->references('id')->on('detail_user')->onDelete('cascade');
             $table->timestamps();
         });
     }
