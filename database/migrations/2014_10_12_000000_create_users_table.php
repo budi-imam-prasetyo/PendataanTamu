@@ -11,21 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detail_user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_user');
-            $table->integer('NIP');
-            $table->string('nama');
-            $table->string('telp')->unique();
+            $table->string('name');
             $table->string('email')->unique();
-            $table->enum('jk', ['Laki-laki', 'Perempuan']);
-            $table->date('tgl_lahir');
-            $table->enum('status', ['PNS', 'Guru Honor Sekolah']);
-            $table->string('PTK');
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('id_mapel')->references('id')->on('mapel')->onDelete('cascade');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->enum('role', ['superadmin', 'operator', 'tamu'])->default('tamu');
+            $table->rememberToken();
             $table->timestamps();
-
         });
     }
 
@@ -34,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detail_user');
+        Schema::dropIfExists('users');
     }
 };
