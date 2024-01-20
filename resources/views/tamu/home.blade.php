@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
+        <div class="row justify-center">
+            <div class="cols-8">
+                <div class="card"
                     <div class="card-header">{{ __('Dashboard') }}</div>
 
                     <div class="card-body">
@@ -13,7 +13,6 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
                         {{ __('You are logged in!') }}
                         <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
     extend: {},
+    colors: {
+      'hijau': '#4fd1c5',
+    }
+
   },
   daisyui: {
     themes: [
