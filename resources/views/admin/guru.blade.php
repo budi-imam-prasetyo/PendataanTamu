@@ -57,7 +57,7 @@ function showUpdateForm(email, name, newEmail) {
     // Set nilai email pada input hidden di form update
     document.getElementById('emailToUpdate').value = email;
 
-    // Set nilai default pada form update
+    // Set nilai default pada form updatee
     document.getElementById('newName').value = name;
     document.getElementById('newEmail').value = newEmail;
 
