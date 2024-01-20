@@ -50,7 +50,7 @@ class LoginController extends Controller
                 return redirect()->route('guru');
             } else {
                 // Redirect default jika peran tidak dikenali
-                return redirect()->route('tamu');
+                return redirect()->route('home');
             }
         }
 
