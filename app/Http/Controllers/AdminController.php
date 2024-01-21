@@ -10,13 +10,15 @@ class AdminController extends Controller
     //
     public function index()
     {
-        return view('admin.admin1');
+        // return view('admin.admin1');
+        $guru = User::where('role', 'guru')->get();
+        return view('admin.admin1', compact('guru'));
     }
 
     public function viewGuru()
     {
-        $guru = User::where('role', 'operator')->get();
-        return view('admin.guru', compact('guru'));
+        // $guru = User::where('role', 'guru')->get();
+        // return view('admin.guru', compact('guru'));
     }
 
     public function addGuru(Request $request)
@@ -26,7 +28,7 @@ class AdminController extends Controller
         $guru->name = $request->name;
         $guru->email = $request->email;
         $guru->password = $request->password;
-        $guru->role = "operator";
+        $guru->role = "guru";
         $guru->save();
         return redirect()->back();
 

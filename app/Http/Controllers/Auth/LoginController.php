@@ -47,7 +47,7 @@ class LoginController extends Controller
             if (auth()->user()->role == 'admin') {
                 return redirect()->route('admin');
             } else if (auth()->user()->role == 'guru') {
-                return redirect()->route('guru');
+                return redirect()->route('admin.guru');
             } else {
                 // Redirect default jika peran tidak dikenali
                 return redirect()->route('home');
@@ -59,5 +59,3 @@ class LoginController extends Controller
     }
 
 }
-
-
