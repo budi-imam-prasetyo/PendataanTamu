@@ -9,8 +9,8 @@
             </div>
 
             <div class="flex flex-col">
-                <h1 class="font-semibold"><span class="num-2"></span> Sales</h1>
-                <p class="text-xs"><span class="num-2"></span> payments</p>
+                <h1 class="font-semibold">Semua</h1>
+                <p class="text-xs">{{ count($allUser) }} Pengguna</p>
             </div>
 
         </div>
