@@ -9,7 +9,7 @@
         <div class="md:flex w-full">
             <div class="w-full md:w-1/2 py-10 px-5 md:px-10">
                 <div class="text-center mb-10">
-                    <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
+                    <h1 class="font-bold text-3xl text-gray-900">Login</h1>
                     <p>Enter your information to register</p>
                 </div>
                 <form method="POST" action="{{ route('login') }}">
@@ -34,11 +34,12 @@
                                         id="email"
                                         type="email"
                                         name="email"
-                                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-hijau"
+                                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-hijau outline-none"
                                         value="{{ old('email') }}"
                                         required
                                         autocomplete="email"
                                         autofocus
+                                        placeholder="Masukan Alamat Email"
                                     />
                                 </div>
                             </div>
@@ -62,9 +63,10 @@
                                         id="password"
                                         type="password"
                                         name="password"
-                                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-hijau"
+                                        class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-hijau outline-none"
                                         required
                                         autocomplete="current-password"
+                                        placeholder="********"
                                     />
                                 </div>
                             </div>
@@ -75,7 +77,7 @@
                                     class="block w-full max-w-xs mx-auto bg-hijau hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
                                     type="submit"
                                 >
-                                    {{ __("Register") }}
+                                    {{ __("Login") }}
                                 </button>
                             </div>
                         </div>
