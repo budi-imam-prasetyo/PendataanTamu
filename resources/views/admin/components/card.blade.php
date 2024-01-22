@@ -1,16 +1,16 @@
-<div class="grid grid-cols-5 gap-6 xl:grid-cols-2">
+<div class="grid grid-cols-4 gap-6 xl:grid-cols-2">
 
     <!-- card -->
     <div class="card mt-6">
         <div class="card-body flex items-center">
 
             <div class="px-3 py-2 rounded bg-indigo-600 text-white mr-3">
-                <i class="fad fa-wallet"></i>
+                <img src="{{ asset('assets/iconCard/check_circle_FILL0_wght400_GRAD0_opsz24.svg') }}">
             </div>
 
             <div class="flex flex-col">
                 <h1 class="font-semibold">Semua</h1>
-                <p class="text-xs">{{ count($allUser) }} Pengguna</p>
+                <p class="text-sm">{{ count($allUser) }} Pengguna</p>
             </div>
 
         </div>
@@ -22,12 +22,12 @@
         <div class="card-body flex items-center">
 
             <div class="px-3 py-2 rounded bg-green-600 text-white mr-3">
-                <i class="fad fa-shopping-cart"></i>
+                <img src="{{ asset('assets/iconCard/admin_panel_settings_FILL0_wght400_GRAD0_opsz24.svg') }}">
             </div>
 
             <div class="flex flex-col">
-                <h1 class="font-semibold"><span class="num-2"></span> Orders</h1>
-                <p class="text-xs"><span class="num-2"></span> items</p>
+                <h1 class="font-semibold">Admin</h1>
+                <p class="text-sm">{{ count($admin) }} Pengguna</p>
             </div>
 
         </div>
@@ -39,12 +39,12 @@
         <div class="card-body flex items-center">
 
             <div class="px-3 py-2 rounded bg-yellow-600 text-white mr-3">
-                <i class="fad fa-blog"></i>
+                <img src="{{ asset('assets/iconCard/school_FILL0_wght400_GRAD0_opsz24.svg') }}">
             </div>
 
             <div class="flex flex-col">
-                <h1 class="font-semibold"><span class="num-2"></span> posts</h1>
-                <p class="text-xs"><span class="num-2"></span> active</p>
+                <h1 class="font-semibold">Guru</h1>
+                <p class="text-sm">{{ count($guru) }} Pengguna</p>
             </div>
 
         </div>
@@ -56,29 +56,12 @@
         <div class="card-body flex items-center">
 
             <div class="px-3 py-2 rounded bg-red-600 text-white mr-3">
-                <i class="fad fa-comments"></i>
+                <img src="{{ asset('assets/iconCard/account_circle_FILL0_wght400_GRAD0_opsz24.svg') }}">
             </div>
 
             <div class="flex flex-col">
-                <h1 class="font-semibold"><span class="num-2"></span> comments</h1>
-                <p class="text-xs"><span class="num-2"></span> approved</p>
-            </div>
-
-        </div>
-    </div>
-    <!-- end card -->
-
-    <!-- card -->
-    <div class="card mt-6 xl:mt-1 xl:col-span-2">
-        <div class="card-body flex items-center">
-
-            <div class="px-3 py-2 rounded bg-pink-600 text-white mr-3">
-                <i class="fad fa-user"></i>
-            </div>
-
-            <div class="flex flex-col">
-                <h1 class="font-semibold"><span class="num-2"></span> memebrs</h1>
-                <p class="text-xs"><span class="num-2"></span> online</p>
+                <h1 class="font-semibold">Tamu</h1>
+                <p class="text-sm">{{ count($tamu) }} Pengguna</p>
             </div>
 
         </div>

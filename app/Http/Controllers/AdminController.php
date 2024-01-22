@@ -12,8 +12,10 @@ class AdminController extends Controller
     {
         // return view('admin.admin1');
         $guru = User::where('role', 'guru')->get();
+        $tamu = User::where('role', 'tamu')->get();
+        $admin = User::where('role', 'admin')->get();
         $allUser = User::all();
-        return view('admin.admin1', compact('guru', 'allUser'));
+        return view('admin.admin1', compact('guru', 'allUser', 'admin', 'tamu'));
     }
 
     public function viewGuru()
