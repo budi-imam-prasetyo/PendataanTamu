@@ -28,9 +28,10 @@
                             <input type="text" name="no_telp_tamu" placeholder="No Telepon">
                             <input type="submit" name="submit" value="Submit" class="btn btn-primary">
                         </form>
+                        <a href="{{ route('pertemuan.index') }}" class="btn btn-secondary"> Ke Pertemuan</a>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
 @endsection
