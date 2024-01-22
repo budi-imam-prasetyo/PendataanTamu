@@ -19,8 +19,12 @@
                             class="fad fa-circle"></i></td>
                     <td class="border border-l-0 px-4 py-2">{{ $guru->name }}</td>
                     <td class="border border-l-0 px-4 py-2">{{ $guru->email }}</td>
-                    <td class="border border-l-0 border-r-0 px-4 py-2"><button type="button" onclick="showUpdateForm('{{ $guru->email }}', '{{ $guru->name }}', '{{ $guru->email }}')">UPDATE</button>
-                        <a href="{{ route('admin.deleteGuru', ['email' => $guru->email]) }}"><button type="button" onclick="return confirm('Are you sure to Delete this')">DELETE</button></a></td>
+                    <td class="border border-l-0 border-r-0 px-4 py-2 justify-between">
+                        <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-medium py-2 w-2/3 rounded" onclick="showUpdateForm('{{ $guru->email }}', '{{ $guru->name }}', '{{ $guru->email }}')">Update</button>
+                        <a href="{{ route('admin.deleteGuru', ['email' => $guru->email]) }}">
+                            <button type="button" class="bg-red-500 hover:bg-green-700 text-white font-medium py-2 w-1/4 rounded" onclick="return confirm('Are you sure to Delete this')">Delete</button>
+                        </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
