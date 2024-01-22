@@ -36,7 +36,7 @@ Route::middleware(['auth','auth.guru'])->group(function () {
 
 Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
-    Route::get('/admin/guru', [App\Http\Controllers\AdminController::class, 'viewGuru'])->name('admin.guru');
+    // Route::get('/admin/guru', [App\Http\Controllers\AdminController::class, 'viewGuru'])->name('admin.guru');
     Route::post('/admin/guru', [App\Http\Controllers\AdminController::class, 'addGuru'])->name('admin.addGuru');
     Route::post('/admin/guru/update-guru', [App\Http\Controllers\AdminController::class, 'updateGuru'])->name('admin.updateGuru');
     Route::get('/admin/guru/{email}', [App\Http\Controllers\AdminController::class, 'deleteGuru'])->name('admin.deleteGuru');
@@ -53,3 +53,6 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
 //     Route::get('/pertemuan/search', [PertemuanController::class, 'search'])->name('pertemuan.search');
 //     Route::post('/pertemuan/search', [PertemuanController::class, 'searchSubmit'])->name('pertemuan.search.submit');
 // });
+
+    Route::get('/admin/mapel', [App\Http\Controllers\AdminController::class, 'mapel'])->name('admin.mapel');
+});

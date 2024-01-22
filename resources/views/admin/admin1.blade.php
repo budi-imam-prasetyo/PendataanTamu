@@ -11,7 +11,7 @@
     @vite('resources/js/scripts.js')
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-900">
     <!-- start navbar -->
     @include('admin.components.navbar')
     <!-- end navbar -->
@@ -26,6 +26,7 @@
             @include('admin.components.card')
             <!-- end nmbers -->
             <!-- start quick Info -->
+            @include('admin.components.form')
             @include('admin.components.table')
             <!-- end quick Info -->
         </div>
