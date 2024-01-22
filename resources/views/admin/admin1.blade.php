@@ -27,7 +27,7 @@
             <!-- end nmbers -->
             <!-- start quick Info -->
             @include('admin.components.form')
-            @include('admin.components.table')    
+            @include('admin.components.table')
             <!-- end quick Info -->
         </div>
         <!-- end content -->
