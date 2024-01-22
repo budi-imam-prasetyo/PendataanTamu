@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TamuController;
@@ -23,6 +24,16 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::post('/data-tamu', [TamuController::class, 'create'])->name('data-tamu');
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
+
+    Route::post('/addlaporan', [LaporanController::class, 'add_laporan'])->name('add_laporan');
+    Route::get('/add', [LaporanController::class, 'laporan_view'])->name('add_laporanview');;
+    Route::get('/edit_laporan/{id}',[LaporanController::class,'edit_product']);
+    Route::get('/delete_laporan/{id}',[LaporanController::class,'delete_product']);
+
+
+
+
 });
 
 Route::middleware(['auth','auth.guru'])->group(function () {
