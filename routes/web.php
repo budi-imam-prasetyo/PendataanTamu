@@ -35,4 +35,5 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::post('/admin/guru', [App\Http\Controllers\AdminController::class, 'addGuru'])->name('admin.addGuru');
     Route::post('/admin/guru/update-guru', [App\Http\Controllers\AdminController::class, 'updateGuru'])->name('admin.updateGuru');
     Route::get('/admin/guru/{email}', [App\Http\Controllers\AdminController::class, 'deleteGuru'])->name('admin.deleteGuru');
+    Route::get('/admin/mapel', [App\Http\Controllers\AdminController::class, 'mapel'])->name('admin.mapel');
 });
