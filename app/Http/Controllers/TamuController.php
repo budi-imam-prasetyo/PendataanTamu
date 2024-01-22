@@ -23,18 +23,12 @@ class TamuController extends Controller
     public function create(Request $request)
     {
         $user = Auth::user();
-        $id_user = $user->id;
-        $nama_tamu = $user->name;
-        $alamat_tamu = $request->alamat_tamu;
-        $no_telp_tamu = $request->no_telp_tamu;
-        $email_tamu = $user->email;
-
         $tamu = new Tamu();
-        $tamu->id_user = $id_user;
-        $tamu->nama_tamu = $nama_tamu;
-        $tamu->alamat_tamu = $alamat_tamu;
-        $tamu->no_telp_tamu = $no_telp_tamu;
-        $tamu->email_tamu = $email_tamu;
+        $tamu->id_user = $user->id;
+        $tamu->nama_tamu = $user->name;
+        $tamu->alamat_tamu = $request->alamat_tamu;
+        $tamu->no_telp_tamu = $request->no_telp_tamu;
+        $tamu->email_tamu = $user->email;
         $tamu->save();
         return redirect()->back()->with('message', 'Successfully');
     }
