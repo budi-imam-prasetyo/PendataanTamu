@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 
+use App\Models\Tamu;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('tamu.home', compact('user'));
+
+        $data_tamu = User::all();
+        return view('tamu.home', compact('data_tamu'));
     }
 }
