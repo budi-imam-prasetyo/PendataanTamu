@@ -12,7 +12,10 @@ class AdminController extends Controller
     {
         // return view('admin.admin1');
         $guru = User::where('role', 'guru')->get();
-        return view('admin.admin1', compact('guru'));
+        $tamu = User::where('role', 'tamu')->get();
+        $admin = User::where('role', 'admin')->get();
+        $allUser = User::all();
+        return view('admin.admin1', compact('guru', 'allUser', 'admin', 'tamu'));
     }
 
     public function viewGuru()
@@ -54,5 +57,11 @@ class AdminController extends Controller
         $guru->delete();
         return redirect()->back();
   
+    }
+
+    public function mapel()
+    {
+        $mapel = Mapel::all();
+        return view('admin.mapel' compact('mapel'));
     }
 }

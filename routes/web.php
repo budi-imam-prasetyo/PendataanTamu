@@ -4,6 +4,7 @@ use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TamuController;
+use App\Http\Controllers\PertemuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,16 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::post('/data-tamu', [TamuController::class, 'create'])->name('data-tamu');
+
+    Route::get('/pertemuan', [PertemuanController::class, 'index'])->name('pertemuan.index');
+    Route::post('/pertemuan/{id}', [PertemuanController::class, 'create'])->name('pertemuan.create');
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
 
     Route::post('/addlaporan', [LaporanController::class, 'add_laporan'])->name('add_laporan');
     Route::get('/add', [LaporanController::class, 'laporan_view'])->name('add_laporanview');;
     Route::get('/edit_laporan/{id}',[LaporanController::class,'edit_product']);
     Route::get('/delete_laporan/{id}',[LaporanController::class,'delete_product']);
+
 
 
 
@@ -47,3 +52,21 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
     Route::post('/admin/guru/update-guru', [App\Http\Controllers\AdminController::class, 'updateGuru'])->name('admin.updateGuru');
     Route::get('/admin/guru/{email}', [App\Http\Controllers\AdminController::class, 'deleteGuru'])->name('admin.deleteGuru');
 });
+
+
+
+// Route::middleware(['auth'])->group(function () {
+//     // Rute untuk halaman pertemuan
+//     Route::get('/pertemuan', [PertemuanController::class, 'index'])->name('pertemuan.index');
+//     // Route::post('/pertemuan', [PertemuanController::class, 'store'])->name('pertemuan.store');
+//     Route::post('/pertemuan', [TamuController::class, 'create'])->name('data-tamu');
+
+//     // Rute untuk halaman pertemuan dan formulir pencarian
+//     Route::get('/pertemuan/search', [PertemuanController::class, 'search'])->name('pertemuan.search');
+//     Route::post('/pertemuan/search', [PertemuanController::class, 'searchSubmit'])->name('pertemuan.search.submit');
+// });
+
+    Route::get('/admin/mapel', [App\Http\Controllers\AdminController::class, 'mapel'])->name('admin.mapel');
+});
+
+

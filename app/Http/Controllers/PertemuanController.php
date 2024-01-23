@@ -5,35 +5,36 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Pertemuan;
+use App\Models\detailUser;
 use App\Models\Tamu;
+use App\Models\User;
 
-class TamuController extends Controller
+class PertemuanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $user = Auth::user();
+        return view('pertemuan.pertemuan', ['user' => $user]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create(Request $request)
+    public function create(Request $request, $id)
     {
+        $tamu = Tamu::find($id);
+        $detailUser = detailUser::find($id);
         $user = Auth::user();
-        $tamu = new Tamu();
-        $tamu->id_user = $user->id;
-        $tamu->nama_tamu = $user->name;
-        $tamu->alamat_tamu = $request->alamat_tamu;
-        $tamu->no_telp_tamu = $request->no_telp_tamu;
-        $tamu->email_tamu = $user->email;
-        $tamu->save();
+        $pertemuan = new Pertemuan();
+        $pertemuan->id_tamu = $tamu->id;
+        $pertemuan->id_detail = $detailUser->id;
+        $pertemuan->tanggal_waktu = now();
+        $pertemuan->tujuan = $request->tujuan;
+        $pertemuan->status = "belum diizinkan";
+        $pertemuan->save();
         return redirect()->back()->with('message', 'Successfully');
     }
 
-    /**
+
+        /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
