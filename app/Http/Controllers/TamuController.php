@@ -30,6 +30,7 @@ class TamuController extends Controller
         $tamu->no_telp_tamu = $request->no_telp_tamu;
         $tamu->email_tamu = $user->email;
         $tamu->save();
+        
         return redirect()->back()->with('message', 'Successfully');
     }
 
