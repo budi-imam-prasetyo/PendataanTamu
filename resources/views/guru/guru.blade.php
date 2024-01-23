@@ -27,4 +27,6 @@
         </div>
     </div>
 </div>
+
+@include('guru.components.form-guru')
 @endsection

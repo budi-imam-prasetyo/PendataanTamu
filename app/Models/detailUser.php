@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class detailUser extends Model
 {
     use HasFactory;
+
+    protected $table = 'detail_user';
+
     public function pertemuan()
     {
         return $this->hasMany(Pertemuan::class, 'id_detail', 'id');

@@ -29,7 +29,7 @@ Route::middleware(['auth', 'revalidate'])->group(function () {
 
 Route::middleware(['auth','auth.guru', 'revalidate'])->group(function () {
     Route::get('/guru', [App\Http\Controllers\GuruController::class, 'index'])->name('guru');
-    Route::post('/detail-guru', [GuruController::class, 'create'])->name('detailGuru');
+    Route::post('/add-detail-guru', [GuruController::class, 'create'])->name('detail.guru');
 });
 
 Route::middleware(['auth', 'auth.admin', 'revalidate'])->group(function () {
@@ -43,4 +43,5 @@ Route::middleware(['auth', 'auth.admin', 'revalidate'])->group(function () {
     Route::post('/admin/mapel/add', [MapelController::class, 'create'])->name('admin.mapel');
     Route::post('/admin/mapel/update', [MapelController::class, 'update'])->name('update.mapel');
     Route::get('/admin/mapel/delete/{nama}', [MapelController::class, 'destroy'])->name('delete.mapel');
+    
 });
