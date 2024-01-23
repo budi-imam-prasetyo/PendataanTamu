@@ -24,9 +24,10 @@
                         </form>
                         <form action="{{route('data-tamu')}}" method="POST">
                             @csrf
+                            <input type="text" name="nama_tamu" placeholder="Nama" value="{{ Auth::user()->name }}">
                             <input type="text" name="alamat_tamu" placeholder="Alamat">
                             <input type="text" name="no_telp_tamu" placeholder="No Telepon">
-                            <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                            <Button type="submit" name="submit" value="Submit" class="btn btn-primary">Tambah Pertemuan</Button>
                         </form>
                     </div>
                 </div>
