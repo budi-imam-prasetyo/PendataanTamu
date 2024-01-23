@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class detailUser extends Model
 {
+    protected $table = 'detail_user';
     use HasFactory;
 
     protected $table = 'detail_user';
