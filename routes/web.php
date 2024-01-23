@@ -43,16 +43,6 @@ Route::middleware(['auth', 'auth.admin'])->group(function () {
 });
 
 
-// Route::middleware(['auth'])->group(function () {
-//     // Rute untuk halaman pertemuan
-//     Route::get('/pertemuan', [PertemuanController::class, 'index'])->name('pertemuan.index');
-//     // Route::post('/pertemuan', [PertemuanController::class, 'store'])->name('pertemuan.store');
-//     Route::post('/pertemuan', [TamuController::class, 'create'])->name('data-tamu');
 
-//     // Rute untuk halaman pertemuan dan formulir pencarian
-//     Route::get('/pertemuan/search', [PertemuanController::class, 'search'])->name('pertemuan.search');
-//     Route::post('/pertemuan/search', [PertemuanController::class, 'searchSubmit'])->name('pertemuan.search.submit');
-// });
 
-    Route::get('/admin/mapel', [App\Http\Controllers\AdminController::class, 'mapel'])->name('admin.mapel');
-});
+
