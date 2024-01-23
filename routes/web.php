@@ -44,7 +44,7 @@ Route::middleware(['auth', 'revalidate'])->group(function () {
 
 Route::middleware(['auth','auth.guru', 'revalidate'])->group(function () {
     Route::get('/guru', [App\Http\Controllers\GuruController::class, 'index'])->name('guru');
-    Route::post('/detail-guru', [GuruController::class, 'create'])->name('detailGuru');
+    Route::post('/add-detail-guru', [GuruController::class, 'create'])->name('detail.guru');
 });
 
 Route::middleware(['auth', 'auth.admin', 'revalidate'])->group(function () {
@@ -57,25 +57,6 @@ Route::middleware(['auth', 'auth.admin', 'revalidate'])->group(function () {
     Route::get('/admin/mapel', [MapelController::class, 'show'])->name('mapel');
     Route::post('/admin/mapel/add', [MapelController::class, 'create'])->name('admin.mapel');
     Route::post('/admin/mapel/update', [MapelController::class, 'update'])->name('update.mapel');
-    Route::get('/admin/mapel/delete/{nama}', [MapelController::class, 'destroy'])->name('delete.mapel');
+    
 });
-
-
-
-
-// Route::middleware(['auth'])->group(function () {
-//     // Rute untuk halaman pertemuan
-//     Route::get('/pertemuan', [PertemuanController::class, 'index'])->name('pertemuan.index');
-//     // Route::post('/pertemuan', [PertemuanController::class, 'store'])->name('pertemuan.store');
-//     Route::post('/pertemuan', [TamuController::class, 'create'])->name('data-tamu');
-
-//     // Rute untuk halaman pertemuan dan formulir pencarian
-//     Route::get('/pertemuan/search', [PertemuanController::class, 'search'])->name('pertemuan.search');
-//     Route::post('/pertemuan/search', [PertemuanController::class, 'searchSubmit'])->name('pertemuan.search.submit');
-// });
-
-    Route::get('/admin/mapel', [App\Http\Controllers\AdminController::class, 'mapel'])->name('admin.mapel');
-});
-
-
 
