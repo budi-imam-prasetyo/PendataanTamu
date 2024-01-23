@@ -58,4 +58,10 @@ class AdminController extends Controller
         return redirect()->back();
   
     }
+
+    public function mapel()
+    {
+        $mapel = Mapel::all();
+        return view('admin.mapel' compact('mapel'));
+    }
 }

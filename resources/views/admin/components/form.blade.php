@@ -40,20 +40,16 @@
 
 <script>
 function showUpdateForm(email, name, newEmail) {
-    // Set nilai email pada input hidden di form update
     document.getElementById('emailToUpdate').value = email;
 
-    // Set nilai default pada form updatee
     document.getElementById('newName').value = name;
     document.getElementById('newEmail').value = newEmail;
 
-    // Tampilkan form update dan sembunyikan form tambah
     document.getElementById('updateForm').style.display = 'block';
     document.querySelector('form[action="{{ route("admin.addGuru") }}"]').style.display = 'none';
 }
 
 function closeUpdateForm() {
-    // Sembunyikan form update dan tampilkan form tambah
     document.getElementById('updateForm').style.display = 'none';
     document.querySelector('form[action="{{ route("admin.addGuru") }}"]').style.display = 'block';
 }
@@ -67,7 +63,6 @@ function validateUpdateForm() {
         alert('Mohon isi semua kolom yang dibutuhkan.');
         return false;
     }
-
     return true;
 }
 </script>
