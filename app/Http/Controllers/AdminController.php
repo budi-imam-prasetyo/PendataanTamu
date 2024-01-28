@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mapel;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -62,6 +63,6 @@ class AdminController extends Controller
     public function mapel()
     {
         $mapel = Mapel::all();
-        return view('admin.mapel' compact('mapel'));
+        return view('admin.mapel', compact('mapel'));
     }
 }

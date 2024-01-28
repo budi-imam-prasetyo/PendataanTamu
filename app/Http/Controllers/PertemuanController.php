@@ -21,10 +21,10 @@ class PertemuanController extends Controller
     public function create(Request $request, $id)
     {
         $tamu = Tamu::find($id);
-        $detailUser = detailUser::find($id);
+        $detailUser = detailUser::find($request->nama_guru);
         $user = Auth::user();
         $pertemuan = new Pertemuan();
-        $pertemuan->id_tamu = $tamu->id;
+        $pertemuan->id_tamu = $user->id;
         $pertemuan->id_detail = $detailUser->id;
         $pertemuan->tanggal_waktu = now();
         $pertemuan->tujuan = $request->tujuan;
