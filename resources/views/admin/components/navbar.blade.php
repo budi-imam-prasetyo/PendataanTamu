@@ -1,341 +1,127 @@
-<div
-    class="md:fixed md:w-full md:top-0 md:z-20 flex flex-row flex-wrap items-center bg-white p-6 border-b border-gray-300">
-
-    <!-- logo -->
-    <div class="flex-none w-56 flex flex-row items-center">
-        <img src="{{ asset('assets/img/logo.png') }}" class="w-10 flex-none">
-        <strong class="capitalize ml-1 flex-1">Pendataan Tamu</strong>
-
-        <button id="sliderBtn" class="flex-none text-right text-gray-900 hidden md:block">
-            <i class="fad fa-list-ul"></i>
-        </button>
-    </div>
-    <!-- end logo -->
-
-    <!-- navbar content toggle -->
-    <button id="navbarToggle" class="hidden md:block md:fixed right-0 mr-6">
-        <i class="fad fa-chevron-double-down"></i>
-    </button>
-    <!-- end navbar content toggle -->
-
-    <!-- navbar content -->
-    <div id="navbar"
-        class="animated md:hidden md:fixed md:top-0 md:w-full md:left-0 md:mt-16 md:border-t md:border-b md:border-gray-200 md:p-10 md:bg-white flex-1 pl-3 flex flex-row flex-wrap justify-between items-center md:flex-col md:items-center">
-
-        <!-- right -->
-        <div class="flex flex-1 flex-row-reverse items-center">
-
-            <!-- user -->
-            <div class="dropdown relative md:static">
-
-                <button class="menu-btn focus:outline-none focus:shadow-outline flex flex-wrap items-center">
-                    <div class="w-8 h-8 overflow-hidden rounded-full">
-                        <img class="w-full h-full object-cover" src="{{ asset('assets/img/user.svg') }}">
-                    </div>
-
-                    <div class="ml-2 capitalize flex ">
-                        <h1 class="text-sm text-gray-800 font-semibold m-0 p-0 leading-none">{{ Auth::user()->name }}
-                        </h1>
-                        <i class="fad fa-chevron-down ml-2 text-xs leading-none"></i>
-                    </div>
-                </button>
-
-                <button class="hidden fixed top-0 left-0 z-10 w-full h-full menu-overflow"></button>
-
-                <div
-                    class="text-gray-500 menu hidden md:mt-10 md:w-full rounded bg-white shadow-md absolute z-20 right-0 w-40 mt-5 py-2 animated faster">
-
-                    <!-- item -->
-                    <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                        href="#">
-                        <i class="fad fa-user-edit text-xs mr-1"></i>
-                        edit my profile
-                    </a>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                        href="#">
-                        <i class="fad fa-inbox-in text-xs mr-1"></i>
-                        my inbox
-                    </a>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                        href="#">
-                        <i class="fad fa-badge-check text-xs mr-1"></i>
-                        tasks
-                    </a>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                        href="#">
-                        <i class="fad fa-comment-alt-dots text-xs mr-1"></i>
-                        chats
-                    </a>
-                    <!-- end item -->
-
-                    <hr>
-
-                    <!-- item -->
-
-                    <a href="{{ route('logout') }}"
-                        class="px-4 py-2 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 hover:text-gray-900 transition-all duration-300 ease-in-out"
-                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                        <i class="fad fa-user-times text-xs mr-1"></i>
-                        Logout
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                    <!-- end item -->
-
-                </div>
-            </div>
-            <!-- end user -->
-
-            <!-- notifcation -->
-            <div class="dropdown relative mr-5 md:static">
-
-                <button
-                    class="text-gray-500 menu-btn p-0 m-0 hover:text-gray-900 focus:text-gray-900 focus:outline-none transition-all ease-in-out duration-300">
-                    <i class="fad fa-bells"></i>
-                </button>
-
-                <button class="hidden fixed top-0 left-0 z-10 w-full h-full menu-overflow"></button>
-
-                <div
-                    class="menu hidden rounded bg-white md:right-0 md:w-full shadow-md absolute z-20 right-0 w-84 mt-5 py-2 animated faster">
-                    <!-- top -->
-                    <div class="px-4 py-2 flex flex-row justify-between items-center capitalize font-semibold text-sm">
-                        <h1>notifications</h1>
-                        <div class="bg-teal-100 border border-teal-200 text-teal-500 text-xs rounded px-1">
-                            <strong>5</strong>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- end top -->
-
-                    <!-- body -->
-
-                    <!-- item -->
-                    <a class="flex flex-row items-center justify-start px-4 py-4 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out"
-                        href="#">
-
-                        <div class="px-3 py-2 rounded mr-3 bg-gray-100 border border-gray-300">
-                            <i class="fad fa-birthday-cake text-sm"></i>
-                        </div>
-
-                        <div class="flex-1 flex flex-rowbg-green-100">
-                            <div class="flex-1">
-                                <h1 class="text-sm font-semibold">poll..</h1>
-                                <p class="text-xs text-gray-500">text here also</p>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <p>4 min ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <hr>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="flex flex-row items-center justify-start px-4 py-4 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out"
-                        href="#">
-
-                        <div class="px-3 py-2 rounded mr-3 bg-gray-100 border border-gray-300">
-                            <i class="fad fa-user-circle text-sm"></i>
-                        </div>
-
-                        <div class="flex-1 flex flex-rowbg-green-100">
-                            <div class="flex-1">
-                                <h1 class="text-sm font-semibold">mohamed..</h1>
-                                <p class="text-xs text-gray-500">text here also</p>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <p>78 min ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <hr>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="flex flex-row items-center justify-start px-4 py-4 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out"
-                        href="#">
-
-                        <div class="px-3 py-2 rounded mr-3 bg-gray-100 border border-gray-300">
-                            <i class="fad fa-images text-sm"></i>
-                        </div>
-
-                        <div class="flex-1 flex flex-rowbg-green-100">
-                            <div class="flex-1">
-                                <h1 class="text-sm font-semibold">new imag..</h1>
-                                <p class="text-xs text-gray-500">text here also</p>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <p>65 min ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <hr>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="flex flex-row items-center justify-start px-4 py-4 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out"
-                        href="#">
-
-                        <div class="px-3 py-2 rounded mr-3 bg-gray-100 border border-gray-300">
-                            <i class="fad fa-alarm-exclamation text-sm"></i>
-                        </div>
-
-                        <div class="flex-1 flex flex-rowbg-green-100">
-                            <div class="flex-1">
-                                <h1 class="text-sm font-semibold">time is up..</h1>
-                                <p class="text-xs text-gray-500">text here also</p>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <p>1 min ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <!-- end item -->
-
-
-                    <!-- end body -->
-
-                    <!-- bottom -->
-                    <hr>
-                    <div class="px-4 py-2 mt-2">
-                        <a href="#"
-                            class="border border-gray-300 block text-center text-xs uppercase rounded p-1 hover:text-teal-500 transition-all ease-in-out duration-500">
-                            view all
-                        </a>
-                    </div>
-                    <!-- end bottom -->
-                </div>
-            </div>
-            <!-- end notifcation -->
-
-            <!-- messages -->
-            <div class="dropdown relative mr-5 md:static">
-
-                <button
-                    class="text-gray-500 menu-btn p-0 m-0 hover:text-gray-900 focus:text-gray-900 focus:outline-none transition-all ease-in-out duration-300">
-                    <i class="fad fa-comments"></i>
-                </button>
-
-                <button class="hidden fixed top-0 left-0 z-10 w-full h-full menu-overflow"></button>
-
-                <div
-                    class="menu hidden md:w-full md:right-0 rounded bg-white shadow-md absolute z-20 right-0 w-84 mt-5 py-2 animated faster">
-                    <!-- top -->
-                    <div class="px-4 py-2 flex flex-row justify-between items-center capitalize font-semibold text-sm">
-                        <h1>messages</h1>
-                        <div class="bg-teal-100 border border-teal-200 text-teal-500 text-xs rounded px-1">
-                            <strong>3</strong>
-                        </div>
-                    </div>
-                    <hr>
-                    <!-- end top -->
-
-                    <!-- body -->
-
-                    <!-- item -->
-                    <a class="flex flex-row items-center justify-start px-4 py-4 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out"
-                        href="#">
-
-                        <div class="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-300">
-                            <img class="w-full h-full object-cover" src="{{ asset('assets/img/user1.jpg') }}"
-                                alt="">
-                        </div>
-
-                        <div class="flex-1 flex flex-rowbg-green-100">
-                            <div class="flex-1">
-                                <h1 class="text-sm font-semibold">mohamed said</h1>
-                                <p class="text-xs text-gray-500">yeah i know</p>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <p>4 min ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <hr>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="flex flex-row items-center justify-start px-4 py-4 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out"
-                        href="#">
-
-                        <div class="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-300">
-                            <img class="w-full h-full object-cover" src="{{ asset('assets/img/user2.jpg') }}"
-                                alt="">
-                        </div>
-
-                        <div class="flex-1 flex flex-rowbg-green-100">
-                            <div class="flex-1">
-                                <h1 class="text-sm font-semibold">sull goldmen</h1>
-                                <p class="text-xs text-gray-500">for sure</p>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <p>1 day ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <hr>
-                    <!-- end item -->
-
-                    <!-- item -->
-                    <a class="flex flex-row items-center justify-start px-4 py-4 block capitalize font-medium text-sm tracking-wide bg-white hover:bg-gray-200 transition-all duration-300 ease-in-out"
-                        href="#">
-
-                        <div class="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100 border border-gray-300">
-                            <img class="w-full h-full object-cover" src="{{ asset('assets/img/user3.jpg') }}"
-                                alt="">
-                        </div>
-
-                        <div class="flex-1 flex flex-rowbg-green-100">
-                            <div class="flex-1">
-                                <h1 class="text-sm font-semibold">mick</h1>
-                                <p class="text-xs text-gray-500">is typing ....</p>
-                            </div>
-                            <div class="text-right text-xs text-gray-500">
-                                <p>31 feb</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <!-- end item -->
-
-
-                    <!-- end body -->
-
-                    <!-- bottom -->
-                    <hr>
-                    <div class="px-4 py-2 mt-2">
-                        <a href="#"
-                            class="border border-gray-300 block text-center text-xs uppercase rounded p-1 hover:text-teal-500 transition-all ease-in-out duration-500">
-                            view all
-                        </a>
-                    </div>
-                    <!-- end bottom -->
-                </div>
-            </div>
-            <!-- end messages -->
-
-
+<nav class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all ease-in shadow-none duration-250 rounded-2xl lg:flex-nowrap lg:justify-start" navbar-main navbar-scroll="false">
+    <div class="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+      <nav>
+        <!-- breadcrumb -->
+        <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+          <li class="text-sm leading-normal">
+            <a class="text-white opacity-50" href="javascript:;">Pages</a>
+          </li>
+          <li class="text-sm pl-2 capitalize leading-normal text-white before:float-left before:pr-2 before:text-white before:content-['/']" aria-current="page">Tables</li>
+        </ol>
+        <h6 class="mb-0 font-bold text-white capitalize">Tables</h6>
+      </nav>
+
+      <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
+        <div class="flex items-center md:ml-auto md:pr-4">
+          <div class="relative flex flex-wrap items-stretch w-full transition-all rounded-lg ease">
+            <span class="text-sm ease leading-5.6 absolute z-50 -ml-px flex h-full items-center whitespace-nowrap rounded-lg rounded-tr-none rounded-br-none border border-r-0 border-transparent bg-transparent py-2 px-2.5 text-center font-normal text-slate-500 transition-all">
+              <i class="fas fa-search"></i>
+            </span>
+            <input type="text" class="pl-9 text-sm focus:shadow-primary-outline ease w-1/100 leading-5.6 relative -ml-px block min-w-0 flex-auto rounded-lg border border-solid border-gray-300 dark:bg-slate-850 dark:text-white bg-white bg-clip-padding py-2 pr-3 text-gray-700 transition-all placeholder:text-gray-500 focus:border-blue-500 focus:outline-none focus:transition-shadow" placeholder="Type here..." />
+          </div>
         </div>
-        <!-- end right -->
-    </div>
-    <!-- end navbar content -->
+        <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+          <!-- online builder btn  -->
+          <!-- <li class="flex items-center">
+            <a class="inline-block px-8 py-2 mb-0 mr-4 text-xs font-bold text-center text-blue-500 uppercase align-middle transition-all ease-in bg-transparent border border-blue-500 border-solid rounded-lg shadow-none cursor-pointer leading-pro hover:-translate-y-px active:shadow-xs hover:border-blue-500 active:bg-blue-500 active:hover:text-blue-500 hover:text-blue-500 tracking-tight-rem hover:bg-transparent hover:opacity-75 hover:shadow-none active:text-white active:hover:bg-transparent" target="_blank" href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053">Online Builder</a>
+          </li> -->
+          <li class="flex items-center">
+            <a href="../pages/sign-in.html" class="block px-0 py-2 text-sm font-semibold text-white transition-all ease-nav-brand">
+              <i class="fa fa-user sm:mr-1"></i>
+              <span class="hidden sm:inline">Sign In</span>
+            </a>
+          </li>
+          <li class="flex items-center pl-4 xl:hidden">
+            <a href="javascript:;" class="block p-0 text-sm text-white transition-all ease-nav-brand" sidenav-trigger>
+              <div class="w-4.5 overflow-hidden">
+                <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                <i class="ease mb-0.75 relative block h-0.5 rounded-sm bg-white transition-all"></i>
+                <i class="ease relative block h-0.5 rounded-sm bg-white transition-all"></i>
+              </div>
+            </a>
+          </li>
+          <li class="flex items-center px-4">
+            <a href="javascript:;" class="p-0 text-sm text-white transition-all ease-nav-brand">
+              <i fixed-plugin-button-nav class="cursor-pointer fa fa-cog"></i>
+              <!-- fixed-plugin-button-nav  -->
+            </a>
+          </li>
 
-</div>
+          <!-- notifications -->
+
+          <li class="relative flex items-center pr-2">
+            <p class="hidden transform-dropdown-show"></p>
+            <a href="javascript:;" class="block p-0 text-sm text-white transition-all ease-nav-brand" dropdown-trigger aria-expanded="false">
+              <i class="cursor-pointer fa fa-bell"></i>
+            </a>
+
+            <ul dropdown-menu class="text-sm transform-dropdown before:font-awesome before:leading-default dark:shadow-dark-xl before:duration-350 before:ease lg:shadow-3xl duration-250 min-w-44 before:sm:right-8 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent dark:bg-slate-850 bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer">
+              <!-- add show class on dropdown open js -->
+              <li class="relative mb-2">
+                <a class="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
+                  <div class="flex py-1">
+                    <div class="my-auto">
+                      <img src="../assets/img/team-2.jpg" class="inline-flex items-center justify-center mr-4 text-sm text-white h-9 w-9 max-w-none rounded-xl" />
+                    </div>
+                    <div class="flex flex-col justify-center">
+                      <h6 class="mb-1 text-sm font-normal leading-normal dark:text-white"><span class="font-semibold">New message</span> from Laur</h6>
+                      <p class="mb-0 text-xs leading-tight text-slate-400 dark:text-white/80">
+                        <i class="mr-1 fa fa-clock"></i>
+                        13 minutes ago
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+
+              <li class="relative mb-2">
+                <a class="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700" href="javascript:;">
+                  <div class="flex py-1">
+                    <div class="my-auto">
+                      <img src="../assets/img/small-logos/logo-spotify.svg" class="inline-flex items-center justify-center mr-4 text-sm text-white bg-gradient-to-tl from-zinc-800 to-zinc-700 dark:bg-gradient-to-tl dark:from-slate-750 dark:to-gray-850 h-9 w-9 max-w-none rounded-xl" />
+                    </div>
+                    <div class="flex flex-col justify-center">
+                      <h6 class="mb-1 text-sm font-normal leading-normal dark:text-white"><span class="font-semibold">New album</span> by Travis Scott</h6>
+                      <p class="mb-0 text-xs leading-tight text-slate-400 dark:text-white/80">
+                        <i class="mr-1 fa fa-clock"></i>
+                        1 day
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+
+              <li class="relative">
+                <a class="dark:hover:bg-slate-900 ease py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700" href="javascript:;">
+                  <div class="flex py-1">
+                    <div class="inline-flex items-center justify-center my-auto mr-4 text-sm text-white transition-all duration-200 ease-nav-brand bg-gradient-to-tl from-slate-600 to-slate-300 h-9 w-9 rounded-xl">
+                      <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>credit-card</title>
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                            <g transform="translate(1716.000000, 291.000000)">
+                              <g transform="translate(453.000000, 454.000000)">
+                                <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
+                                <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"></path>
+                              </g>
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                      <h6 class="mb-1 text-sm font-normal leading-normal dark:text-white">Payment successfully completed</h6>
+                      <p class="mb-0 text-xs leading-tight text-slate-400 dark:text-white/80">
+                        <i class="mr-1 fa fa-clock"></i>
+                        2 days
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

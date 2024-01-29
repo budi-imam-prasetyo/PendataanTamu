@@ -1,36 +1,46 @@
-<div class="grid grid-cols-1 gap-6 mt-6 xl:grid-cols-1">
-    <!-- Start Recent Sales -->
-    <div class="card col-span-2 xl:col-span-1">
-        <div class="card-header">Recent Sales</div>
-
-        <table class="table-auto w-full text-left">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 border-r"></th>
-                    <th class="px-4 py-2 border-r">Nama</th>
-                    <th class="px-4 py-2 border-r">Email</th>
-                    <th class="px-4 py-2">Action</th>
-                </tr>
-            </thead>
-            <tbody class="text-gray-600">
-                @foreach ($guru as $guru)
-                <tr>
-                    <td class="border border-l-0 px-4 py-2 text-center text-green-500"><i
-                            class="fad fa-circle"></i></td>
-                    <td class="border border-l-0 px-4 py-2">{{ $guru->name }}</td>
-                    <td class="border border-l-0 px-4 py-2">{{ $guru->email }}</td>
-                    <td class="border border-l-0 border-r-0 px-4 py-2 justify-between">
-                        <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-medium py-2 w-2/3 rounded" onclick="showUpdateForm('{{ $guru->email }}', '{{ $guru->name }}', '{{ $guru->email }}')">Update</button>
-                        <a href="{{ route('admin.deleteGuru', ['email' => $guru->email]) }}">
-                            <button type="button" class="bg-red-500 hover:bg-green-700 text-white font-medium py-2 w-1/4 rounded" onclick="return confirm('Are you sure to Delete this')">Delete</button>
-                        </a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    <!-- End Recent Sales -->
-
-
+<div class="flex flex-wrap">
+  <div class="flex-none w-full max-w-full px-3">
+      <div class="relative flex flex-col min-w-0 mb-6 break-words  border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+          <div class="p-6 pb-0 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300">
+              <h6 class="text-white font-bold text-xl">Guru</h6>
+          </div>
+          <div class="flex-auto px-0 pt-0 pb-2">
+              <div class="p-0 overflow-x-auto  rounded-b-2xl">
+                  <table class="items-center w-full mb-0 align-top border-collapse dark:border-white/40 text-slate-500">
+                      <thead class="align-bottom">
+                          <tr>
+                              <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Nama</th>
+                              <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Email</th>
+                              <th class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400 opacity-70">Employed</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach ($guru as $guru)
+                          <tr class="{{ $loop->odd ? 'bg-gray-100' : 'bg-white' }}">
+                              <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <div class="flex px-2 py-1">
+                                      <div class="flex flex-col justify-center">
+                                          <h6 class="mb-0 text-sm leading-normal dark:text-white">{{ $guru->name }}</h6>
+                                      </div>
+                                  </div>
+                              </td>
+                              <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <p class="mb-0 text-xs font-semibold leading-tight dark:text-white dark:opacity-80">{{ $guru->email }}</p>
+                              </td>
+                              <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                                  <button type="button" onclick="showUpdateForm('{{ $guru->email }}', '{{ $guru->name }}', '{{ $guru->email }}')" class="text-xs font-semibold leading-tight text-white bg-blue-500 hover:bg-blue-600 py-1 px-2 rounded">Update</button>
+                                  <a href="{{ route('admin.deleteGuru', ['email' => $guru->email]) }}">
+                                      <button type="button" class="text-xs font-semibold leading-tight text-white bg-red-500 hover:bg-red-600 py-1 px-2 rounded" onclick="return confirm('Are you sure to Delete this')">Delete</button>
+                                  </a>
+                              </td>
+                              <!-- <td class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
+                              </td> -->
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>
