@@ -11,7 +11,6 @@ class detailUser extends Model
     protected $table = 'detail_user';
     use HasFactory;
 
-    protected $table = 'detail_user';
 
     public function pertemuan()
     {
