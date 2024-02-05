@@ -1,9 +1,12 @@
-<div class="flex flex-wrap">
+<div class="flex flex-wrap mx-6">
     <div class="flex-none w-full max-w-full">
         <div
-            class="relative flex flex-col min-w-0 mb-6 break-words border-0 border-transparent border-solid shadow-xl dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
-            <div class="p-6 pb-2 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent bg-blue-500">
-                <h6 class="text-white font-bold text-xl text-center">Tabel Mapel</h6>
+            class="relative flex flex-col min-w-0 mb-6 break-words border-0 border-transparent border-solid shadow-lg dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border">
+            <div
+                class="p-6 pb-2 mb-0 border-b-0 border-b-solid rounded-t-2xl border-b-transparent bg-blue-500 dark:bg-slate-850">
+                <h6 class="text-white font-bold text-xl text-center">
+                    Tabel Mapel
+                </h6>
             </div>
             <div class="flex-auto px-0 pt-0 pb-2">
                 <div class="p-0 overflow-x-auto rounded-b-2xl">
@@ -12,19 +15,20 @@
                         <thead class="align-bottom">
                             <tr>
                                 <th
-                                    class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xs border-b-solid tracking-none whitespace-nowrap text-slate-400">
+                                    class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 dark:bg-slate-800 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400">
                                     No.</th>
                                 <th
-                                    class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xs border-b-solid tracking-none whitespace-nowrap text-slate-400">
+                                    class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 dark:bg-slate-800 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400">
                                     Nama Pelajaran</th>
                                 <th
-                                    class="px-6 py-3 font-bold text-center uppercase align-middle bg-blue-100 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xs border-b-solid tracking-none whitespace-nowrap text-slate-400">
+                                    class="px-6 py-3 font-bold text-left uppercase align-middle bg-blue-100 dark:bg-slate-800 border-b border-collapse shadow-none dark:border-white/40 dark:text-white text-xxs border-b-solid tracking-none whitespace-nowrap text-slate-400">
                                     Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($mapel as $index => $mapel)
-                                <tr class="{{ $loop->odd ? 'bg-gray-100' : 'bg-white' }}">
+                                <tr
+                                    class="{{ $loop->odd ? 'bg-gray-100 dark:bg-slate-700' : 'bg-white dark:bg-slate-600' }}">
                                     <td
                                         class="p-2 align-middle bg-transparent border-b dark:border-white/40 whitespace-nowrap shadow-transparent">
                                         <div class="flex px-2 py-1">

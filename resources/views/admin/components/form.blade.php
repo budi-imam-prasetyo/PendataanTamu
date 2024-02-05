@@ -1,6 +1,6 @@
 <div class="mb-5">
     <!-- Form untuk Add -->
-    <form action="{{ route('admin.addGuru') }}" method="post" class="flex flex-col w-full p-6 mx-auto mt-10 bg-white border rounded-2xl shadow-md dark:bg-slate-850 dark:border-transparent dark:shadow-dark-xl">
+    <form action="{{ route('admin.addGuru') }}" method="post" class="flex flex-col w-full p-6 mx-auto mt-10 bg-white border rounded-2xl shadow-lg dark:bg-slate-850 dark:border-transparent dark:shadow-dark-xl">
         <h1 class="mb-4 text-2xl font-bold text-center dark:text-white">Tambah Guru</h1>
         @csrf
         <label for="inputName" class="block mb-2 text-sm font-semibold text-gray-600 dark:text-white">Nama</label>

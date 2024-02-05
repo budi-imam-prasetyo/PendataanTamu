@@ -19,6 +19,16 @@ class AdminController extends Controller
         $allUser = User::all();
         return view('admin.admin1', compact('guru', 'allUser', 'admin', 'tamu'))->with('currentPage', 'guru');
     }
+    
+    public function profile()
+    {
+        return view('admin.profileAdmin');
+        // $guru = User::where('role', 'guru')->get();
+        // $tamu = User::where('role', 'tamu')->get();
+        // $admin = User::where('role', 'admin')->get();
+        // $allUser = User::all();
+        // return view('admin.admin1', compact('guru', 'allUser', 'admin', 'tamu'))->with('currentPage', 'guru');
+    }
 
     public function viewGuru()
     {
