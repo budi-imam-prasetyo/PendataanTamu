@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Mapel;
 use App\Models\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -17,6 +18,16 @@ class AdminController extends Controller
         $admin = User::where('role', 'admin')->get();
         $allUser = User::all();
         return view('admin.admin1', compact('guru', 'allUser', 'admin', 'tamu'))->with('currentPage', 'guru');
+    }
+    
+    public function profile()
+    {
+        return view('admin.profileAdmin');
+        // $guru = User::where('role', 'guru')->get();
+        // $tamu = User::where('role', 'tamu')->get();
+        // $admin = User::where('role', 'admin')->get();
+        // $allUser = User::all();
+        // return view('admin.admin1', compact('guru', 'allUser', 'admin', 'tamu'))->with('currentPage', 'guru');
     }
 
     public function viewGuru()

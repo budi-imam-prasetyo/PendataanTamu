@@ -33,27 +33,23 @@ Route::middleware(['auth', 'revalidate'])->group(function () {
 
     Route::post('/addlaporan', [LaporanController::class, 'add_laporan'])->name('add_laporan');
     Route::get('/add', [LaporanController::class, 'laporan_view'])->name('add_laporanview');;
-    Route::get('/edit_laporan/{id}',[LaporanController::class,'edit_product']);
-    Route::get('/delete_laporan/{id}',[LaporanController::class,'delete_product']);
-
-
-
-
-
+    Route::get('/edit_laporan/{id}', [LaporanController::class, 'edit_product']);
+    Route::get('/delete_laporan/{id}', [LaporanController::class, 'delete_product']);
 });
 
-Route::middleware(['auth','auth.guru', 'revalidate'])->group(function () {
+Route::middleware(['auth', 'auth.guru', 'revalidate'])->group(function () {
     Route::get('/guru', [App\Http\Controllers\GuruController::class, 'index'])->name('guru');
     Route::post('/add-detail-guru', [GuruController::class, 'create'])->name('detail.guru');
 });
 
 Route::middleware(['auth', 'auth.admin', 'revalidate'])->group(function () {
     Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/profile', [App\Http\Controllers\AdminController::class, 'profile'])->name('admin.profile');
     // Route::get('/admin/guru', [App\Http\Controllers\AdminController::class, 'viewGuru'])->name('admin.guru');
     Route::post('/admin/guru', [App\Http\Controllers\AdminController::class, 'addGuru'])->name('admin.addGuru');
     Route::post('/admin/guru/update-guru', [App\Http\Controllers\AdminController::class, 'updateGuru'])->name('admin.updateGuru');
     Route::get('/admin/guru/{email}', [App\Http\Controllers\AdminController::class, 'deleteGuru'])->name('admin.deleteGuru');
-    
+
     Route::get('/admin/mapel', [MapelController::class, 'show'])->name('mapel');
     Route::post('/admin/mapel/add', [MapelController::class, 'create'])->name('admin.mapel');
     Route::post('/admin/mapel/update', [MapelController::class, 'update'])->name('update.mapel');

@@ -23,7 +23,7 @@
   </head>
 
   <body class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
-    <div class="fixed w-full bg-blue-500 dark:hidden min-h-75 "></div>
+    <div class="absolute w-full bg-blue-500 dark:hidden min-h-75 "></div>
 
     @include('admin.components.sidebar')
     
@@ -148,7 +148,7 @@
     </div>
   </body>
   <!-- plugin for scrollbar  -->
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js" async></script>
-  <!-- main script file  -->
-  <script src="../assets/js/argon-dashboard-tailwind.js?v=1.0.1" async></script>
+  <script src="{{ asset('assets/js/fixed-plugin.js') }}" async></script>
+<script src="{{ asset('assets/js/carousel.js') }}" async></script>
+<script src="{{ asset('assets/js/nav-pills.js') }}" async></script>
 </html>

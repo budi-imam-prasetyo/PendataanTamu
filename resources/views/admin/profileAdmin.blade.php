@@ -35,11 +35,7 @@
 
         <div class="w-full px-6 py-6 mx-auto">
             <!-- table 1 -->
-
-            @include('admin.components.form')
-            @include('admin.components.table')
-
-
+            @include('admin.components.profile')
             <!-- card 2 -->
 
 
