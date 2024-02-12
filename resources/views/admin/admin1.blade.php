@@ -13,12 +13,12 @@
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/e2ff4b1040.js" crossorigin="anonymous"></script>
     <!-- Nucleo Icons -->
+
+    {{-- <link href="https://cdn.datatables.net/1.13.7/css/dataTables.tailwindcss.min.css" rel="stylesheet" /> --}}
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Main Styling -->
     @vite('resources/css/admin/argon-dashboard-tailwind.css')
-    {{-- @vite('resources/css/nucleo-icons.css') --}}
-    {{-- @vite('resources/css/nucleo-svg.css') --}}
     @vite('resources/js/perfect-scrollbar.js')
 </head>
 
@@ -202,6 +202,13 @@
 <script src="{{ asset('assets/js/fixed-plugin.js') }}" async></script>
 <script src="{{ asset('assets/js/carousel.js') }}" async></script>
 <script src="{{ asset('assets/js/nav-pills.js') }}" async></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.tailwindcss.min.js"></script>
+{{-- <script src="https://cdn.tailwindcss.com/"></script> --}}
+<script>
+    new DataTable('#guru');
+</script>
 
 
 </html>
