@@ -17,6 +17,8 @@ return [
         resource_path('views'),
     ],
 
+    'pagination' => 'vendor.pagination.tailwind',
+
     /*
     |--------------------------------------------------------------------------
     | Compiled View Path

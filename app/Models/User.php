@@ -8,6 +8,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Pagination\Paginator;
 
 class User extends Authenticatable
 {
@@ -52,5 +53,10 @@ class User extends Authenticatable
     public function tamu()
     {
         return $this->hasOne(Tamu::class, 'id_user', 'id');
+    }
+
+    public function links()
+    {
+        return $this->paginate(10)->links('pagination::tailwind');
     }
 }
